@@ -1,0 +1,37 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build All",
+			"command": "/usr/bin/clang++",
+			"args": [
+				"-std=c++17",
+				"-stdlib=libc++",
+				// "--include-directory=${workspaceFolder}/../../vulkanexp/vulkansdk-macos-1.2.135.0/macOS/include",
+				// "-L${workspaceFolder}/../../vulkanexp/vulkansdk-macos-1.2.135.0/macOS/lib",
+				"-lglfw",
+				"-lvulkan",
+				// "-Wl,-rpath, \"/Users/chunlong/dev/vulkanexp/vulkansdk-macos-1.2.135.0/macOS/lib/\"",
+				"-g",
+				// "${file}",
+				"${workspaceFolder}/*.cpp",
+				"-o",
+				// "${fileDirname}/helloworld.out"
+				"${workspaceFolder}/gfx-alchemy.out"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
