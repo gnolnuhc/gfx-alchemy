@@ -81,7 +81,7 @@ private:
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "gfx-alchemy", nullptr, nullptr);
   }
 
   void initVulkan()
@@ -238,7 +238,7 @@ private:
 
     if (enableValidationLayers)
     {
-      createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+      createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size()); // Just for compatibility
       createInfo.ppEnabledLayerNames = validationLayers.data();
     }
     else
@@ -300,7 +300,7 @@ private:
 
     if (enableValidationLayers)
     {
-      extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+      extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME); // Add the extension that supports debug messenger
     }
 
     return extensions;
